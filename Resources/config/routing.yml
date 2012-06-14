@@ -1,0 +1,7 @@
+xi_tag_search:
+    pattern:  /tag/search
+    defaults: { _controller: "XiTagBundle:Tag:search" }
+
+xi_tag_add:
+    pattern:  /tag/search/add
+    defaults: { _controller: "XiTagBundle:Tag:add" }

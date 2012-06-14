@@ -1,0 +1,36 @@
+{% extends 'form_div_layout.html.twig' %}
+
+{% block tag_widget %}
+{% spaceless %}
+      {% for id , name in value %}
+            <li data-id="{{id }}">{{ name }}<a href="#" class="ui-icon ui-icon-close remove"></a></li>
+            <input type="hidden" class="tag-id" {{ block('tag_attributes') }} value="{{ name}}" data-id="{{id}}" />
+      {% endfor %}          
+{% endspaceless %}
+{% endblock %}
+   
+{% block tag_row %}
+{% spaceless %}          
+ <div class="tag_item_selector" data-elementName="{{ full_name }}">
+    <div class="items">           
+        <ul {{ block('widget_container_attributes') }}>
+            {{ form_errors(form) }}
+            {{ form_widget(form) }}
+        </ul>
+     </div>
+    
+    <div class="item_input">
+        {{ block('field_label') }}        
+        <button name="add-item" class="add-item-btn">{{"document.create_tag"|trans}}</button>
+        <input class="item_field" type="text" />
+    </div>
+</div>           
+{% endspaceless %}
+{% endblock tag_row %}
+
+{% block tag_attributes %}
+{% spaceless %}
+    id="{{ full_name }}_{{ id }}" name="{{ full_name }}[]"{% if read_only %} disabled="disabled"{% endif %}{% if required %} required="required"{% endif %}{% if max_length %} maxlength="{{ max_length }}"{% endif %}{% if pattern %} pattern="{{ pattern }}"{% endif %}
+    {% for attrname,attrvalue in attr %}{{attrname}}="{{attrvalue}}" {% endfor %}
+{% endspaceless %}
+{% endblock tag_attributes %}

@@ -1,0 +1,16 @@
+services:
+    xi_tag.service.tag:
+        class:     Xi\Bundle\TagBundle\Service\TagService
+        arguments: ["@doctrine.orm.entity_manager", "@xi_tag.repository.tag", "@fpn_tag.tag_manager"]
+
+    xi_tag.repository.tag:
+        class:           Xi\Bundle\TagBundle\Entity\Tag
+        arguments:       [Xi\Bundle\TagBundle\Entity\Tag]
+        factory_service: doctrine.orm.entity_manager
+        factory_method:  getRepository
+
+    xi_tag.type.tag_selector:
+        class: Xi\Bundle\TagBundle\Form\Type\TagType
+        arguments: ["@fpn_tag.tag_manager"]
+        tags:
+            - { name: form.type, alias: tag_selector }
