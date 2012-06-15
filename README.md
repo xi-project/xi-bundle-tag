@@ -40,5 +40,5 @@ xi-bundle-selector
 ```yml
 XiTagBundle:
     resource: "@XiTagBundle/Resources/config/routing.yml"
-    pre
+    prefix:   /
 ```
