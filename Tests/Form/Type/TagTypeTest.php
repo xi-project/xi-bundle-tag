@@ -13,7 +13,7 @@ use PHPUnit_Framework_Testcase,
  * @group formType
  * @group tag
  */ 
-class TagTypeTest extends ServiceTestCase
+class TagTypeTest extends PHPUnit_Framework_Testcase
 {
     /**
      * @var TagManager
@@ -27,8 +27,8 @@ class TagTypeTest extends ServiceTestCase
     
     public function setUp()
     {
-        parent::setUp();   
-        $this->tagManager = $this->getContainer()->get('fpn_tag.tag_manager');
+        parent::setUp();     
+        $this->tagManager = $this->getMockBuilder('FPN\TagBundle\Entity\TagManager')->disableOriginalConstructor()->getMock();
         $this->dispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
         $this->factory = $this->getMock('Symfony\Component\Form\FormFactoryInterface');
         $this->builder = new FormBuilder('name', $this->factory, $this->dispatcher);       

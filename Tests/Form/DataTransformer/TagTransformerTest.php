@@ -4,6 +4,7 @@ namespace Xi\Bundle\TagBundle\Tests\Form\DataTransformer;
 use PHPUnit_Framework_Testcase,
     Xi\Bundle\TagBundle\Form\DataTransformer\TagTransformer,
     FPN\TagBundle\Entity\TagManager,
+    FPN\TagBundle\Entity\Tag,
     Doctrine\Common\Collections\ArrayCollection;
 /**
  * @group transformer
@@ -19,8 +20,6 @@ class TagTransformerTest extends PHPUnit_Framework_Testcase
     public function setUp()
     {
         parent::setUp();
-        
-        $this->tagManager = $this->getContainer()->get('fpn_tag.tag_manager');
     }
     
     /**
@@ -28,11 +27,14 @@ class TagTransformerTest extends PHPUnit_Framework_Testcase
      */  
     public function reverseTransformTest()
     {
+       $this->tagManager = $this->getMockBuilder('FPN\TagBundle\Entity\TagManager')->disableOriginalConstructor()->getMock();
+       $this->tagManager->expects($this->once())->method('loadOrCreateTags')->with(array('bar','foo', 'xoo'))->will($this->returnValue($this->createTags(array('bar','foo', 'xoo'))));
+
        $tagTransformer = new TagTransformer($this->tagManager);
        $collection = new ArrayCollection(array('bar','foo', 'xoo'));  
      
        $newCollection = $tagTransformer->reverseTransform($collection);
-     
+            
        $this->assertInstanceOf('Doctrine\Common\Collections\ArrayCollection', $newCollection);
        $this->assertEquals($collection->toArray(), $this->getTagNamesCollection($newCollection)->toArray());     
     }
@@ -47,4 +49,19 @@ class TagTransformerTest extends PHPUnit_Framework_Testcase
         });
     }
 
+    /**
+     * @param array $names
+     * @return \FPN\TagBundle\Entity\Tag 
+     */
+    private function createTags($names)
+    {
+        $tags = array();
+        foreach($names as $name){
+            $tag =  new Tag();
+            $tag->setName($name);
+            $tags[] = $tag;
+        }
+        return $tags;
+    }
+    
 }
