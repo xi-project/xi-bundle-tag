@@ -1,5 +1,8 @@
 {
     "name": "xi-project/tagBundle",
+    "description": "Xi Tag Bundle",
+    "keywords": ["tagging", "tag"],
+    "type": "symfony-bundle",
     "require": {
         "symfony/framework-bundle": "=v2.0.14",
         "symfony/form": "=v2.0.14",
