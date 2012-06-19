@@ -10,6 +10,6 @@
         "fpn/tag-bundle": "dev-master"
     },
     "autoload": {
-        "psr-0": { "Symfony\\Component\\TagBundle": "" }
+        "psr-0": { "Xi\\Bundle\\TagBundle": "" }
     }
 }
