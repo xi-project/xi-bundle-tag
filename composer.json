@@ -1,5 +1,5 @@
 {
-    "name": "xi-project/tagBundle",
+    "name": "xi/tag-bundle",
     "description": "Xi Tag Bundle",
     "keywords": ["tagging", "tag"],
     "type": "symfony-bundle",
