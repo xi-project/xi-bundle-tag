@@ -11,5 +11,5 @@
     },
     "autoload": {
         "psr-0": { "Symfony\\Component\\TagBundle": "" }
-    }, 
+    }
 }
