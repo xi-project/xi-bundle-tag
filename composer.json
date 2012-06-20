@@ -12,4 +12,5 @@
     "autoload": {
         "psr-0": { "Xi\\Bundle\\TagBundle": "" }
     }
+    "target-dir": "Xi/Bundle/TagBundle"
 }
