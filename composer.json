@@ -8,12 +8,18 @@
             "name": "xi-project",
             "email": "xi.devs@gmail.com"
         }
-    ],        
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "http://github.com/xi-project/FPNTagBundle"
+        }
+    ],
     "require": {
         "symfony/framework-bundle": "=v2.1.0-BETA1",
         "symfony/form": "=v2.1.0-BETA1",
         "symfony/dependency-injection": "=v2.1.0-BETA1",
-        "fpn/tag-bundle": "dev-master"
+        "fpn/tag-bundle": "dev-symfony-2.1"
     },
     "autoload": {
         "psr-0": { "Xi\\Bundle\\TagBundle": "" }
