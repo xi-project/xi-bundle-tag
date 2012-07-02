@@ -3,7 +3,7 @@
 namespace Xi\Bundle\TagBundle\Form\Type;
 
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\FormBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 use Xi\Bundle\TagBundle\Form\DataTransformer\TagTransformer;
 use Doctrine\Common\Persistence\ObjectManager;
 use FPN\TagBundle\Entity\TagManager;
@@ -20,7 +20,7 @@ class TagType extends CollectionType
         $this->tagManager = $tagManager;
     }
        
-    public function getParent(array $options)
+    public function getParent()
     {
         return 'collection';
     }
@@ -30,7 +30,7 @@ class TagType extends CollectionType
         return 'tag';
     }
     
-    public function getDefaultOptions(array $options)
+    public function getDefaultOptions()
     {
         return array(
             'allow_add'     => true,
@@ -41,7 +41,7 @@ class TagType extends CollectionType
         );
     }
 
-    public function buildForm(FormBuilder $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $transformer = new TagTransformer($this->tagManager);
         $builder->appendClientTransformer($transformer);

@@ -31,7 +31,7 @@ class TagTypeTest extends PHPUnit_Framework_Testcase
         $this->tagManager = $this->getMockBuilder('FPN\TagBundle\Entity\TagManager')->disableOriginalConstructor()->getMock();
         $this->dispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
         $this->factory = $this->getMock('Symfony\Component\Form\FormFactoryInterface');
-        $this->builder = new FormBuilder('name', $this->factory, $this->dispatcher);       
+        $this->builder = new FormBuilder('name', 'Xi\Bundle\TagBundle\Form\Type\TagType', $this->dispatcher, $this->factory);
     }
     
     /**
