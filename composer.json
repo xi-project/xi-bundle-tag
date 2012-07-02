@@ -19,7 +19,8 @@
         "symfony/framework-bundle": "=v2.1.0-BETA1",
         "symfony/form": "=v2.1.0-BETA1",
         "symfony/dependency-injection": "=v2.1.0-BETA1",
-        "fpn/tag-bundle": "dev-symfony-2.1"
+        "fpn/tag-bundle": "dev-symfony-2.1",
+        "xi/selector-bundle": "2.1.x-dev"
     },
     "autoload": {
         "psr-0": { "Xi\\Bundle\\TagBundle": "" }
