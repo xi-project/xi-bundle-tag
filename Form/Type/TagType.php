@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Xi\Bundle\TagBundle\Form\DataTransformer\TagTransformer;
 use Doctrine\Common\Persistence\ObjectManager;
 use FPN\TagBundle\Entity\TagManager;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class TagType extends CollectionType
 {
@@ -30,15 +31,15 @@ class TagType extends CollectionType
         return 'tag';
     }
     
-    public function getDefaultOptions()
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        return array(
+        $resolver->setDefaults(array(
             'allow_add'     => true,
             'allow_delete'  => false,
             'prototype'     => true,
             'type'          => 'text',
             'options'       => array(),
-        );
+        ));
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
