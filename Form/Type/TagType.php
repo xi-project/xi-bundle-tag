@@ -38,7 +38,7 @@ class TagType extends CollectionType
             'allow_delete'  => false,
             'prototype'     => true,
             'type'          => 'text',
-            'options'       => array(),
+            'options'       => array('data' => true), // @todo: find out why this is required
         ));
     }
 
