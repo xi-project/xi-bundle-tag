@@ -16,21 +16,33 @@ class TagType extends CollectionType
      */
     private $tagManager;
 
+    /**
+     * @param TagManager $tagManager
+     */
     public function __construct(TagManager $tagManager)
     {
         $this->tagManager = $tagManager;
     }
-       
+
+    /**
+     * @return string
+     */
     public function getParent()
     {
         return 'collection';
     }
-    
+
+    /**
+     * @return string
+     */
     public function getName()
     {
         return 'tag';
     }
-    
+
+    /**
+     * @param OptionsResolverInterface $resolver
+     */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
@@ -42,6 +54,10 @@ class TagType extends CollectionType
         ));
     }
 
+    /**
+     * @param  FormBuilderInterface $builder
+     * @param  array                $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $transformer = new TagTransformer($this->tagManager);
