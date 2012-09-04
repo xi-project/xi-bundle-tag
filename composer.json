@@ -15,7 +15,7 @@
         "symfony/form": "2.1.*",
         "symfony/dependency-injection": "2.1.*",
         "fpn/tag-bundle": "dev-master",
-        "xi/selector-bundle": "2.1.x-dev"
+        "xi/selector-bundle": "dev-master"
     },
     "autoload": {
         "psr-0": { "Xi\\Bundle\\TagBundle": "" }
