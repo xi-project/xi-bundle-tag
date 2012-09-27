@@ -42,3 +42,18 @@ XiTagBundle:
     resource: "@XiTagBundle/Resources/config/routing.yml"
     prefix:   /
 ```
+
+### config.yml -file
+
+Your twig configuration should look something like this:
+
+```
+twig:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug%
+    form:
+        resources:
+            - 'XiTagBundle:Form:tag-fields.html.twig'
+    globals:
+        domain:   %domain%
+```
