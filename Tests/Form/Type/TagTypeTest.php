@@ -41,7 +41,7 @@ class TagTypeTest extends PHPUnit_Framework_Testcase
     {
         $tagType = new TagType($this->tagManager);  
         $tagType->buildForm($this->builder, array());
-        $transformers = $this->builder->getClientTransformers();
+        $transformers = $this->builder->getViewTransformers();
         
         $this->assertTrue(in_array(new TagTransformer($this->tagManager), $transformers));
     }
