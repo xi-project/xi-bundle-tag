@@ -11,9 +11,9 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "symfony/framework-bundle": "2.1.*",
-        "symfony/form": "2.1.*",
-        "symfony/dependency-injection": "2.1.*",
+        "symfony/framework-bundle": ">=2.1,<2.4-dev",
+        "symfony/form": ">=2.1,<2.4-dev",
+        "symfony/dependency-injection": ">=2.1, <2.4-dev",
         "fpn/tag-bundle": "dev-master",
         "xi/selector-bundle": "dev-master"
     },
