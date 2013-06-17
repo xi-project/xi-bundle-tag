@@ -61,6 +61,6 @@ class TagType extends CollectionType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $transformer = new TagTransformer($this->tagManager);
-        $builder->appendClientTransformer($transformer);
+        $builder->addViewTransformer($transformer);
     }
 }
